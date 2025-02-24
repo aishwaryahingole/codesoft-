@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>claculator</title>
+</head>
+<body>
+<style>
+.claculator{
+   width: 235px;
+   height: 250px;
+   border: 3px solid;
+}
+#display input{
+   font-size: larger;
+   text-align: end;
+   margin-left: 6px;
+   margin-top: 10px;
+   height: 30px;
+   width: 215px;
+}
+.btn button{
+  margin: 5px;
+  padding: 1px;
+  font-size: 10px;
+  text-align: center;
+  background-color:black;
+  border: 1px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 45px;
+  height: 30px;
+}
+button.btn5  {
+  background-color:rgb(250, 163, 2) ;
+  color: black;
+}
+</Style>
+<body>
+   <div class="claculator">
+      <div id="display"><input type="text"  id="inputDisplay" placeholder="0" ></div>
+         <div class="btn">
+           <button onclick="clearDisplay()" class="btn5">AC</button>
+           <button  onclick="deleteLast() "class="btn5">DEL</button>
+           <button  onclick="append('%')" class="btn5">%</button>
+           <button onclick="append('/')"class="btn5">/</button>
+           <button onclick="append('7')">7</button>
+           <button onclick="append('8')">8</button>
+           <button onclick="append('9')">9</button>
+           <button onclick="append('*')"class="btn5">*</button>
+           <button onclick="append('4')">4</button>
+           <button onclick="append('5')">5</button>
+           <button onclick="append('6')">6</button>
+           <button  onclick="append('-')"class="btn5">-</button>
+           <button onclick="append('1')">1</button>
+           <button onclick="append('2')">2</button>
+           <button onclick="append('3')">3</button>
+           <button  onclick="append('+')" class="btn5" >+</button>
+           <button onclick="append('0')">0</button>
+           <button onclick="append('00')">00</button>
+           <button onclick="append('.')">.</button>
+           <button  onclick="calculate()" class="btn5" >=</button>
+         </div>
+   </div>
+   <script>
+      const display = document.getElementById('inputDisplay');
+     
+       function append(value) {
+          if (display.value === "0" && value !== ".") {
+            display.value = value;
+            
+         } else {
+            display.value += value;
+         }
+      }
+
+    function clearDisplay() {
+   display.value = '0';
+}
+ function deleteLast() {
+   display.value = display.value.slice(0, -1) || '0';
+   
+ }
+
+ function calculate() {
+   try {
+      display.value = eval(display.value) ||'0';
+   } catch (error) {
+     display.value = 'Error';
+  }
+}
+
+</script>
+</body>
+</html>
